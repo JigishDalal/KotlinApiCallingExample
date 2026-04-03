@@ -35,6 +35,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         
         // Initialize SharedPreferences
+        //MODE_PRIVATE: This is the default and recommended mode. It means the file can be accessed by only the calling application.
+
+        //MODE_APPEND:  Used to append new preferences to existing ones rather than overwriting the entire file.
+        //val fos = openFileOutput("data.txt", MODE_APPEND)
+        //fos.write("New Data\n".toByteArray())
+
+        //MODE_ENABLE_WRITE_AHEAD_LOGGING:faster database writes in SQLite (improves performance)
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
         
         // Initialize Views
