@@ -21,6 +21,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * DashboardActivity is the main screen after login that displays a list of memes
+ * fetched from the Meme API. It uses RecyclerView with MemeAdapter to show memes
+ * and provides logout functionality through the toolbar menu.
+ */
 class DashboardActivity : AppCompatActivity() {
     
     private lateinit var sharedPreferences: SharedPreferences
@@ -31,6 +36,14 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var memeAdapter: MemeAdapter
 
+    /**
+     * Called when the activity is starting.
+     * Initializes views, sets up RecyclerView with adapter, configures toolbar,
+     * and triggers the meme API call.
+     * 
+     * @param savedInstanceState If the activity is being re-initialized after previously
+     * being shut down then this Bundle contains the data it most recently supplied.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -62,6 +75,12 @@ class DashboardActivity : AppCompatActivity() {
         fetchMemes()
     }
 
+    /**
+     * Fetches memes from the Meme API using Retrofit.
+     * Shows loading indicator while fetching and updates RecyclerView on success.
+     * Displays error message with retry option on failure.
+     * Uses coroutines to perform network operation on IO thread.
+     */
     private fun fetchMemes() {
         // Show loading
         progressBar.visibility = View.VISIBLE
@@ -92,6 +111,10 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
     
+    /**
+     * Displays the error state by showing error message and retry button.
+     * Hides the progress bar and RecyclerView.
+     */
     private fun showError() {
         progressBar.visibility = View.GONE
         rvMemes.visibility = View.GONE
@@ -100,11 +123,24 @@ class DashboardActivity : AppCompatActivity() {
         Toast.makeText(this, "Error: ${resources.getString(R.string.app_name)}", Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * Inflate the logout menu into the toolbar.
+     * 
+     * @param menu The options menu in which you place your items.
+     * @return True for the menu to be displayed.
+     */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_logout, menu)
         return true
     }
 
+    /**
+     * Handles selection of menu items in the toolbar.
+     * Triggers logout when the logout menu item is selected.
+     * 
+     * @param item The menu item that was selected.
+     * @return True if the event was handled, false otherwise.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
@@ -115,6 +151,11 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Clears the user's login session by removing SharedPreferences data.
+     * Navigates back to LoginActivity and clears the back stack to prevent
+     * returning to the dashboard without logging in again.
+     */
     private fun logout() {
         // Clear login state from SharedPreferences
         val editor = sharedPreferences.edit()

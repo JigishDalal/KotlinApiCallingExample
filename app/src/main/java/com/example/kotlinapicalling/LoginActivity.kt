@@ -9,6 +9,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 
+/**
+ * LoginActivity handles user authentication for the application.
+ * It uses SharedPreferences to persist login state and validates
+ * credentials against fixed admin credentials.
+ */
 class LoginActivity : AppCompatActivity() {
     
     private lateinit var sharedPreferences: SharedPreferences
@@ -16,6 +21,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etPassword: TextInputEditText
     private lateinit var btnLogin: Button
 
+    /**
+     * Called when the activity is starting.
+     * Initializes views, SharedPreferences, and checks if user is already logged in.
+     * Sets up login button click listener to validate credentials.
+     * 
+     * @param savedInstanceState If the activity is being re-initialized after previously
+     * being shut down then this Bundle contains the data it most recently supplied.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,6 +67,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Navigates to the DashboardActivity and finishes the current login screen.
+     * This prevents the user from navigating back to the login screen using back button.
+     */
     private fun goToDashboard() {
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)

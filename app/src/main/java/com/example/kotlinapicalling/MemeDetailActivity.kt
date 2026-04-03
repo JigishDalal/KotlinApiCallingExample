@@ -7,9 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
 
+/**
+ * MemeDetailActivity displays detailed information about a selected meme.
+ * It receives meme data through Intent extras and shows the meme image,
+ * title, author, subreddit, upvotes, and NSFW status.
+ */
 class MemeDetailActivity : AppCompatActivity() {
 
     companion object {
+        // Intent extra keys for passing meme data between activities
         const val EXTRA_POST_LINK = "extra_post_link"
         const val EXTRA_SUBREDDIT = "extra_subreddit"
         const val EXTRA_TITLE = "extra_title"
@@ -19,6 +25,14 @@ class MemeDetailActivity : AppCompatActivity() {
         const val EXTRA_NSFW = "extra_nsfw"
     }
 
+    /**
+     * Called when the activity is starting.
+     * Sets up the toolbar with back navigation, retrieves meme data from intent,
+     * and populates the UI with the meme details.
+     * 
+     * @param savedInstanceState If the activity is being re-initialized after previously
+     * being shut down then this Bundle contains the data it most recently supplied.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meme_detail)
@@ -62,6 +76,12 @@ class MemeDetailActivity : AppCompatActivity() {
             .into(ivMeme)
     }
 
+    /**
+     * Handles the navigation up button press in the toolbar.
+     * Navigates back to the previous screen.
+     * 
+     * @return True if the navigation was handled.
+     */
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
