@@ -14,7 +14,7 @@
         android:background="@color/purple_700"
         app:title="Meme Details"
         app:titleTextColor="@color/white"
-        app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel" />
+        app:navigationIcon="?attr/actionModeCloseDrawable" />
 
     <ScrollView
         android:layout_width="match_parent"
