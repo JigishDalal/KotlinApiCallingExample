@@ -1,4 +1,4 @@
-package com.example.kotlinapicalling
+package com.example.kotlinapicalling.screen
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
+import com.example.kotlinapicalling.R
 
 /**
  * MemeDetailActivity displays detailed information about a selected meme.
@@ -66,7 +67,8 @@ class MemeDetailActivity : AppCompatActivity() {
         tvSubreddit.text = "r/$subreddit"
         tvUps.text = "👍 $ups upvotes"
         tvNsfw.text = if (nsfw) "NSFW: Yes" else "NSFW: No"
-        tvNsfw.setTextColor(if (nsfw) resources.getColor(R.color.purple_700, null) else resources.getColor(R.color.teal_700, null))
+        tvNsfw.setTextColor(if (nsfw) resources.getColor(R.color.purple_700, null) else resources.getColor(
+            R.color.teal_700, null))
 
         // Load image with Glide
         Glide.with(this)

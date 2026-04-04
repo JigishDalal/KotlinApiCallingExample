@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kotlinapicalling.MemeDetailActivity
+import com.example.kotlinapicalling.screen.MemeDetailActivity
 import com.example.kotlinapicalling.R
 import com.example.kotlinapicalling.data.model.Meme
 

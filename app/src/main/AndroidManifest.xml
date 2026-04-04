@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MemeApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinApiCalling">
         <activity
-            android:name=".LoginActivity"
+            android:name=".screen.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
@@ -24,11 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DashboardActivity"
+            android:name=".screen.DashboardActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".MemeDetailActivity"
+            android:name=".screen.MemeDetailActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
     </application>

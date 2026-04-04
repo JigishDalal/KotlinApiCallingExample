@@ -1,5 +1,7 @@
 package com.example.kotlinapicalling.data.api
 
+import android.content.Context
+import com.example.kotlinapicalling.R
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,9 +10,13 @@ import retrofit2.converter.gson.GsonConverterFactory
  * It creates and manages the Retrofit instance and the MemeApiService implementation.
  */
 object RetrofitClient {
-    
-    private const val BASE_URL = "https://meme-api.com/"
-    
+
+    private lateinit var BASE_URL: String
+
+    fun init(context: Context) {
+        BASE_URL = context.getString(R.string.base_url)
+    }
+
     /**
      * Lazy-initialized Retrofit instance configured with the base URL
      * and Gson converter for JSON parsing.

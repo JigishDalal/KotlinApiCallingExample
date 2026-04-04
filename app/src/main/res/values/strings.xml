@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KotlinApiCalling</string>
+    <string name="base_url">https://meme-api.com/</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.kotlinapicalling
+package com.example.kotlinapicalling.screen
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinapicalling.R
 import com.example.kotlinapicalling.data.api.RetrofitClient
 import com.example.kotlinapicalling.ui.adapter.MemeAdapter
 import kotlinx.coroutines.CoroutineScope
