@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.kotlinapicalling.R
 import com.example.kotlinapicalling.data.api.RetrofitClient
 import com.example.kotlinapicalling.ui.adapter.MemeAdapter
@@ -26,6 +27,7 @@ import kotlinx.coroutines.withContext
  * DashboardActivity is the main screen after login that displays a list of memes
  * fetched from the Meme API. It uses RecyclerView with MemeAdapter to show memes
  * and provides logout functionality through the toolbar menu.
+ * Supports pull-to-refresh for reloading memes.
  */
 class DashboardActivity : AppCompatActivity() {
     
@@ -36,11 +38,12 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var btnRetry: Button
     private lateinit var toolbar: Toolbar
     private lateinit var memeAdapter: MemeAdapter
+    private lateinit var swipeRefresh: SwipeRefreshLayout
 
     /**
      * Called when the activity is starting.
      * Initializes views, sets up RecyclerView with adapter, configures toolbar,
-     * and triggers the meme API call.
+     * sets up SwipeRefreshLayout, and triggers the meme API call.
      * 
      * @param savedInstanceState If the activity is being re-initialized after previously
      * being shut down then this Bundle contains the data it most recently supplied.
@@ -58,6 +61,7 @@ class DashboardActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         tvError = findViewById(R.id.tvError)
         btnRetry = findViewById(R.id.btnRetry)
+        swipeRefresh = findViewById(R.id.swipeRefresh)
         
         // Setup Toolbar
         setSupportActionBar(toolbar)
@@ -66,6 +70,15 @@ class DashboardActivity : AppCompatActivity() {
         memeAdapter = MemeAdapter()
         rvMemes.layoutManager = LinearLayoutManager(this)
         rvMemes.adapter = memeAdapter
+        
+        // Setup SwipeRefreshLayout
+        swipeRefresh.setOnRefreshListener {
+            fetchMemes(isRefresh = true)
+        }
+        swipeRefresh.setColorSchemeResources(
+            R.color.purple_700,
+            R.color.teal_700
+        )
         
         // Retry button click listener
         btnRetry.setOnClickListener {
@@ -81,20 +94,31 @@ class DashboardActivity : AppCompatActivity() {
      * Shows loading indicator while fetching and updates RecyclerView on success.
      * Displays error message with retry option on failure.
      * Uses coroutines to perform network operation on IO thread.
+     * 
+     * @param isRefresh If true, indicates this is a pull-to-refresh action.
+     *                  Hides the progress bar and shows SwipeRefreshLayout indicator instead.
      */
-    private fun fetchMemes() {
-        // Show loading
-        progressBar.visibility = View.VISIBLE
-        tvError.visibility = View.GONE
-        btnRetry.visibility = View.GONE
-        rvMemes.visibility = View.GONE
+    private fun fetchMemes(isRefresh: Boolean = false) {
+        // Show appropriate loading indicator
+        if (isRefresh) {
+            // Don't show progress bar for refresh, SwipeRefreshLayout handles it
+            tvError.visibility = View.GONE
+            btnRetry.visibility = View.GONE
+        } else {
+            progressBar.visibility = View.VISIBLE
+            tvError.visibility = View.GONE
+            btnRetry.visibility = View.GONE
+            rvMemes.visibility = View.GONE
+        }
         
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = RetrofitClient.memeApiService.getMemes(5)
                 
                 withContext(Dispatchers.Main) {
+                    // Hide loading indicators
                     progressBar.visibility = View.GONE
+                    swipeRefresh.isRefreshing = false
                     
                     if (response.isSuccessful && response.body() != null) {
                         val memeResponse = response.body()!!
@@ -106,6 +130,8 @@ class DashboardActivity : AppCompatActivity() {
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
+                    progressBar.visibility = View.GONE
+                    swipeRefresh.isRefreshing = false
                     showError()
                 }
             }
