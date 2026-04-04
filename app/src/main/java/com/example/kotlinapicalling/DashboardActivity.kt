@@ -87,7 +87,18 @@ class DashboardActivity : AppCompatActivity() {
         tvError.visibility = View.GONE
         btnRetry.visibility = View.GONE
         rvMemes.visibility = View.GONE
-        
+        /*CoroutineScope helps us run background tasks safely and manages their lifecycle automatically
+                1. MainScope / Main Dispatcher
+                       CoroutineScope(Dispatchers.Main)
+                Used for
+                - UI updates
+                - Running code on main thread
+                2. IO Dispatcher
+                        CoroutineScope(Dispatchers.IO)
+                Used for:
+                    - API calls
+                    - Database operations
+*/
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = RetrofitClient.memeApiService.getMemes(5)
