@@ -50,7 +50,7 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dashboard)
         
         // Initialize SharedPreferences
-        sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences(getString(R.string.pref_user_prefs), MODE_PRIVATE)
         
         // Initialize Views
         toolbar = findViewById(R.id.toolbar)
@@ -121,7 +121,7 @@ class DashboardActivity : AppCompatActivity() {
         rvMemes.visibility = View.GONE
         tvError.visibility = View.VISIBLE
         btnRetry.visibility = View.VISIBLE
-        Toast.makeText(this, "Error: ${resources.getString(R.string.app_name)}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.dashboard_error_toast, getString(R.string.app_name)), Toast.LENGTH_SHORT).show()
     }
 
     /**
@@ -163,7 +163,7 @@ class DashboardActivity : AppCompatActivity() {
         editor.clear()
         editor.apply()
 
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.dashboard_logout_success, Toast.LENGTH_SHORT).show()
 
         // Navigate back to LoginActivity
         val intent = Intent(this, LoginActivity::class.java)

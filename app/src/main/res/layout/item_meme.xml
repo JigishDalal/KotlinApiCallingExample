@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:layout_margin="@dimen/card_margin"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="@dimen/spacing_md">
 
         <!-- Meme Image -->
         <ImageView
             android:id="@+id/ivMeme"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/meme_image_height"
             android:scaleType="centerCrop"
-            android:contentDescription="Meme Image"
+            android:contentDescription="@string/detail_content_desc_meme"
             android:background="@color/purple_200" />
 
         <!-- Title -->
@@ -27,11 +27,9 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Meme Title"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:text="@string/detail_meme_title"
+            android:textAppearance="@style/TextAppearance.App.HeadlineSmall"
             android:maxLines="2"
             android:ellipsize="end" />
 
@@ -39,7 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/spacing_xs"
             android:orientation="horizontal">
 
             <TextView
@@ -47,17 +45,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="by author"
-                android:textSize="12sp"
-                android:textColor="@color/teal_700" />
+                android:text="@string/detail_by_author_placeholder"
+                android:textAppearance="@style/TextAppearance.App.CaptionSecondary" />
 
             <TextView
                 android:id="@+id/tvUps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👍 0"
-                android:textSize="12sp"
-                android:textColor="@color/purple_700" />
+                android:text="@string/meme_upvotes_placeholder"
+                android:textAppearance="@style/TextAppearance.App.Label" />
 
         </LinearLayout>
 

@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
         //fos.write("New Data\n".toByteArray())
 
         //MODE_ENABLE_WRITE_AHEAD_LOGGING:faster database writes in SQLite (improves performance)
-        sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences(getString(R.string.pref_user_prefs), MODE_PRIVATE)
         
         // Initialize Views
         etEmail = findViewById(R.id.etEmail)
@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         
         // Check if user is already logged in
-        if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+        if (sharedPreferences.getBoolean(getString(R.string.pref_key_is_logged_in), false)) {
             goToDashboard()
         }
 
@@ -63,14 +63,14 @@ class LoginActivity : AppCompatActivity() {
             if (email == "admin" && password == "Admin@123") {
                 // Save login state
                 val editor = sharedPreferences.edit()
-                editor.putBoolean("isLoggedIn", true)
-                editor.putString("userEmail", email)
+                editor.putBoolean(getString(R.string.pref_key_is_logged_in), true)
+                editor.putString(getString(R.string.pref_key_user_email), email)
                 editor.apply()
 
-                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.login_success, Toast.LENGTH_SHORT).show()
                 goToDashboard()
             } else {
-                Toast.makeText(this, "Invalid Credentials. Use admin / Admin@123", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.login_error, Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purple_700"
-        app:title="Meme Details"
+        app:title="@string/detail_title"
         app:titleTextColor="@color/white"
         app:navigationIcon="?attr/actionModeCloseDrawable" />
 
@@ -25,21 +25,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/screen_padding_detail">
 
             <!-- Meme Image -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation">
 
                 <ImageView
                     android:id="@+id/ivMemeDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="@dimen/meme_detail_image_height"
                     android:scaleType="centerCrop"
-                    android:contentDescription="Meme Image"
+                    android:contentDescription="@string/detail_content_desc_meme"
                     android:background="@color/purple_200" />
 
             </androidx.cardview.widget.CardView>
@@ -49,53 +49,45 @@
                 android:id="@+id/tvTitleDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Meme Title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/detail_meme_title"
+                android:textAppearance="@style/TextAppearance.App.HeadlineMedium" />
 
             <!-- Subreddit -->
             <TextView
                 android:id="@+id/tvSubreddit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="r/memes"
-                android:textSize="14sp"
-                android:textColor="@color/teal_700"
-                android:textStyle="italic" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/detail_subreddit_placeholder"
+                android:textAppearance="@style/TextAppearance.App.Caption" />
 
             <!-- Author -->
             <TextView
                 android:id="@+id/tvAuthorDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="by author"
-                android:textSize="14sp"
-                android:textColor="@color/black" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/detail_by_author_placeholder"
+                android:textAppearance="@style/TextAppearance.App.BodyMedium" />
 
             <!-- Ups -->
             <TextView
                 android:id="@+id/tvUpsDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="👍 0 upvotes"
-                android:textSize="16sp"
-                android:textColor="@color/purple_700"
-                android:textStyle="bold" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/detail_upvotes_placeholder"
+                android:textAppearance="@style/TextAppearance.App.LabelBold" />
 
             <!-- NSFW -->
             <TextView
                 android:id="@+id/tvNsfw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="NSFW: No"
-                android:textSize="14sp"
-                android:textColor="@color/teal_700" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/detail_nsfw_no"
+                android:textAppearance="@style/TextAppearance.App.BodyMedium" />
 
         </LinearLayout>
 

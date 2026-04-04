@@ -8,34 +8,33 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="@dimen/screen_padding_login"
     android:background="@color/white">
 
     <!-- App Icon -->
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="@dimen/app_icon_size"
+        android:layout_height="@dimen/app_icon_size"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/spacing_xxl"
         android:src="@mipmap/ic_launcher"
-        android:contentDescription="App Icon" />
+        android:contentDescription="@string/login_content_desc_app_icon" />
 
     <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="@color/purple_700"
-        android:layout_marginBottom="32dp" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/login_title"
+        android:textAppearance="@style/TextAppearance.App.HeadlineLarge"
+        android:layout_marginBottom="@dimen/spacing_xxl" />
 
     <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/login_email_hint"
         app:startIconDrawable="@android:drawable/ic_dialog_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -50,8 +49,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Password"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:hint="@string/login_password_hint"
         app:startIconDrawable="@android:drawable/ic_lock_lock"
         app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -68,10 +67,8 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Login"
-        android:textSize="16sp"
-        android:padding="12dp" />
-
+        android:layout_marginTop="@dimen/spacing_xxl"
+        android:text="@string/login_button"
+        android:padding="@dimen/spacing_md" />
 </LinearLayout>
 </ScrollView>

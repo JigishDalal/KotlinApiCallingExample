@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ==================== Text Styles ==================== -->
+    
+    <!-- ==================== Headline / Title Styles ==================== -->
+    
+    <!-- Large Title - Used for main screen titles (e.g., Login title) -->
+    <style name="TextAppearance.App.HeadlineLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_xl</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <!-- Medium Title - Used for screen headers, card titles -->
+    <style name="TextAppearance.App.HeadlineMedium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_lg</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Small Title - Used for section headers, list item titles -->
+    <style name="TextAppearance.App.HeadlineSmall" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- ==================== Body / Normal Text Styles ==================== -->
+
+    <!-- Large Body - Used for prominent body text -->
+    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Medium Body - Default body text style -->
+    <style name="TextAppearance.App.BodyMedium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Small Body - Used for secondary body text -->
+    <style name="TextAppearance.App.BodySmall" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- ==================== Caption / Description Styles ==================== -->
+
+    <!-- Caption - Used for descriptions, subtitles -->
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/teal_700</item>
+    </style>
+
+    <!-- Caption Secondary - Used for secondary descriptions -->
+    <style name="TextAppearance.App.CaptionSecondary" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_xs</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/teal_700</item>
+    </style>
+
+    <!-- ==================== Label Styles ==================== -->
+
+    <!-- Label - Used for form labels, hints -->
+    <style name="TextAppearance.App.Label" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_sm</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <!-- Label Bold - Used for emphasized labels -->
+    <style name="TextAppearance.App.LabelBold" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <!-- ==================== Error Text Style ==================== -->
+
+    <!-- Error - Used for error messages -->
+    <style name="TextAppearance.App.Error" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
+    <!-- ==================== Button Text Style ==================== -->
+
+    <!-- Button - Default button text style -->
+    <style name="TextAppearance.App.Button" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_md</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

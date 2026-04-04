@@ -54,8 +54,8 @@ class MemeAdapter(
         val meme = memes[position]
         
         holder.tvTitle.text = meme.title
-        holder.tvAuthor.text = "by ${meme.author}"
-        holder.tvUps.text = "👍 ${meme.ups}"
+        holder.tvAuthor.text = holder.itemView.context.getString(R.string.detail_by_author, meme.author)
+        holder.tvUps.text = holder.itemView.context.getString(R.string.meme_upvotes, meme.ups)
         
         // Load image with Glide
         Glide.with(holder.itemView.context)

@@ -42,7 +42,7 @@ class MemeDetailActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Meme Details"
+        supportActionBar?.title = getString(R.string.detail_title)
 
         // Get data from intent
         val postLink = intent.getStringExtra(EXTRA_POST_LINK) ?: ""
@@ -63,10 +63,10 @@ class MemeDetailActivity : AppCompatActivity() {
 
         // Set data to views
         tvTitle.text = title
-        tvAuthor.text = "by $author"
-        tvSubreddit.text = "r/$subreddit"
-        tvUps.text = "👍 $ups upvotes"
-        tvNsfw.text = if (nsfw) "NSFW: Yes" else "NSFW: No"
+        tvAuthor.text = getString(R.string.detail_by_author, author)
+        tvSubreddit.text = getString(R.string.detail_subreddit, subreddit)
+        tvUps.text = getString(R.string.detail_upvotes, ups)
+        tvNsfw.text = if (nsfw) getString(R.string.detail_nsfw_yes) else getString(R.string.detail_nsfw_no)
         tvNsfw.setTextColor(if (nsfw) resources.getColor(R.color.purple_700, null) else resources.getColor(
             R.color.teal_700, null))
 

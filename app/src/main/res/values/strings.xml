@@ -1,4 +1,46 @@
 <resources>
+    <!-- ==================== App Configuration ==================== -->
     <string name="app_name">KotlinApiCalling</string>
     <string name="base_url">https://meme-api.com/</string>
+
+    <!-- ==================== Preference Keys ==================== -->
+    <string name="pref_user_prefs">UserPrefs</string>
+    <string name="pref_key_is_logged_in">isLoggedIn</string>
+    <string name="pref_key_user_email">userEmail</string>
+
+    <!-- ==================== Login Screen ==================== -->
+    <string name="login_title">Login</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_success">Login Successful!</string>
+    <string name="login_error">Invalid Credentials. Use admin / Admin@123</string>
+    <string name="login_content_desc_app_icon">App Icon</string>
+
+    <!-- ==================== Dashboard Screen ==================== -->
+    <string name="dashboard_title">Memes Dashboard</string>
+    <string name="dashboard_error_loading">Failed to load memes</string>
+    <string name="dashboard_retry">Retry</string>
+    <string name="dashboard_logout_success">Logged out successfully</string>
+    <string name="dashboard_error_toast">Error: %1$s</string>
+
+    <!-- ==================== Meme Detail Screen ==================== -->
+    <string name="detail_title">Meme Details</string>
+    <string name="detail_content_desc_meme">Meme Image</string>
+    <string name="detail_meme_title">Meme Title</string>
+    <string name="detail_by_author">by %1$s</string>
+    <string name="detail_by_author_placeholder" translatable="false">by author</string>
+    <string name="detail_subreddit">r/%1$s</string>
+    <string name="detail_subreddit_placeholder" translatable="false">r/memes</string>
+    <string name="detail_upvotes">👍 %1$d upvotes</string>
+    <string name="detail_upvotes_placeholder" translatable="false">👍 0 upvotes</string>
+    <string name="detail_nsfw_yes">NSFW: Yes</string>
+    <string name="detail_nsfw_no">NSFW: No</string>
+
+    <!-- ==================== Meme List Item ==================== -->
+    <string name="meme_upvotes">👍 %1$d</string>
+    <string name="meme_upvotes_placeholder" translatable="false">👍 0</string>
+
+    <!-- ==================== Menu ==================== -->
+    <string name="menu_logout">Logout</string>
 </resources>

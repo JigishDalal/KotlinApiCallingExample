@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purple_700"
-        android:title="Memes Dashboard"
+        android:title="@string/dashboard_title"
         app:titleTextColor="@color/white"
         android:titleTextColor="@color/white" />
 
@@ -30,10 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:text="Failed to load memes"
-        android:textSize="16sp"
-        android:textColor="@color/purple_700"
+        android:layout_marginTop="@dimen/spacing_xxxl"
+        android:text="@string/dashboard_error_loading"
+        android:textAppearance="@style/TextAppearance.App.Error"
         android:visibility="gone" />
 
     <!-- Retry Button -->
@@ -42,8 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:text="Retry"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:text="@string/dashboard_retry"
         android:visibility="gone" />
 
     <!-- Memes RecyclerView -->
